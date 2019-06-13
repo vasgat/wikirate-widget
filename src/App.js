@@ -27,43 +27,53 @@ class App extends Component {
   }
 
   getDataForCompanyAndUpdateChart = () => {
-    //TODO: normalizedCompanyName constant remove/replace with dynamic value
-    // const normalizedCompanyName = 'Marks_and_Spencer_Group_plc';
-    const normalizedCompanyName = this.state.selectedCompanyOption.value;
-    console.log('this.state');
-    console.log(this.state);
+    console.log('yyy:')
+    console.log(this.state.metricsPerCompany)
+    const company = this.state.selectedCompanyOption.value
+    const metrics = this.state.metricsPerCompany.filter(metricsPerCompany => metricsPerCompany.company == company)
 
-    const scope1DeferredData = fetch(`https://wikirate.org/CDP+Scope_1_Emissions+${normalizedCompanyName}+2017.json`) .then(data => { return data.json() });
-
-    const scope2DeferredData = fetch(`https://wikirate.org/CDP+Scope_2_Emissions+${normalizedCompanyName}+2017.json`)
-      .then(data => { return data.json() });
-
-    Promise
-      .all([scope1DeferredData, scope2DeferredData])
-      .then(emissionData => {
-
-        console.log(emissionData);
-        const humanizedCompanyName = emissionData[0].company;
-
-        const emissionValuesPerScope = emissionData.map(data => ({
-          value: data.value,
-          name: data.metric
-        }));
-
-        const chartData = {
-          companyName: humanizedCompanyName,
-          chartSeriesData: emissionValuesPerScope
-        };
-
-        this.setState({
-          chartData
-        });
-
-        console.log("chartData"); 
-        console.log(chartData); 
-
-      });
+    console.log('metrics per company:')
+    console.log(metrics)
   }
+
+  // getDataForCompanyAndUpdateChart = () => {
+  //   //TODO: normalizedCompanyName constant remove/replace with dynamic value
+  //   // const normalizedCompanyName = 'Marks_and_Spencer_Group_plc';
+  //   const normalizedCompanyName = this.state.selectedCompanyOption.value;
+  //   console.log('this.state');
+  //   console.log(this.state);
+
+  //   const scope1DeferredData = fetch(`https://wikirate.org/CDP+Scope_1_Emissions+${normalizedCompanyName}+2017.json`) .then(data => { return data.json() });
+
+  //   const scope2DeferredData = fetch(`https://wikirate.org/CDP+Scope_2_Emissions+${normalizedCompanyName}+2017.json`)
+  //     .then(data => { return data.json() });
+
+  //   Promise
+  //     .all([scope1DeferredData, scope2DeferredData])
+  //     .then(emissionData => {
+
+  //       console.log(emissionData);
+  //       const humanizedCompanyName = emissionData[0].company;
+
+  //       const emissionValuesPerScope = emissionData.map(data => ({
+  //         value: data.value,
+  //         name: data.metric
+  //       }));
+
+  //       const chartData = {
+  //         companyName: humanizedCompanyName,
+  //         chartSeriesData: emissionValuesPerScope
+  //       };
+
+  //       this.setState({
+  //         chartData
+  //       });
+
+  //       console.log("chartData"); 
+  //       console.log(chartData); 
+
+  //     });
+  // }
 
   componentDidMount() {
     console.log("COMPONENT DID MOIUNT");
@@ -106,7 +116,7 @@ class App extends Component {
 
         const metricsPerCompany = BAR.map(itemsByOneCompany => ({
           metrics: itemsByOneCompany, 
-          company: itemsByOneCompany[0].company
+          company: itemsByOneCompany[0].url.split('+')[2]
         }))
         .value();
         that.setState({ metricsPerCompany })
