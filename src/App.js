@@ -12,6 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      metricsPerCompany: [],
       companyOptions: [], 
       selectedCompanyOption: null, 
       chartData: null
@@ -102,6 +103,13 @@ class App extends Component {
           label: itemsByOneCompany[0].company
         }))
         .value();
+
+        const metricsPerCompany = BAR.map(itemsByOneCompany => ({
+          metrics: itemsByOneCompany, 
+          company: itemsByOneCompany[0].company
+        }))
+        .value();
+        that.setState({ metricsPerCompany })
 
         console.log('optionsForSuggestDropdownlist');
         console.log(optionsForSuggestDropdownlist);
