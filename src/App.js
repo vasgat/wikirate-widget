@@ -73,28 +73,37 @@ class App extends Component {
           //   foo: dataYear1.json()
           // });
 
-          const companies = []
+          let companies = []
           const series = []
 
           Promise.all([dataYear1.json(), dataYear2.json()])
             .then(([jsonYear1, jsonYear2]) => {
+              console.log(jsonYear2.answers)
               const answers = _.values(jsonYear2.answers).map(item2 => {
                 const item1 = _.find(_.values(jsonYear1.answers), {"company": item2.company});
 
                 if (item1 == undefined) {
                   return null
                 }
-                
+
                 return {
                   company: item1.company,
+                  companyName: jsonYear2["companies"][item1.company],
                   valueYear1: parseFloat(item1.value), 
                   valueYear2: parseFloat(item2.value)
                 }
               })
               .filter(item => item != null && !isNaN(item.valueYear1) && !isNaN(item.valueYear2))
+
               const sortedAnswers = _.orderBy(answers, ['valueYear2'], ['desc'])
+              console.log(sortedAnswers)
+
               series.push({name: '2017', type: 'bar', data: sortedAnswers.map(item => item.valueYear1)})
               series.push({name: '2018', type: 'bar', data: sortedAnswers.map(item => item.valueYear2)})
+
+              companies = sortedAnswers.map(item => item.companyName)
+              console.log(companies)
+              //companies.push({name: '2018', type: 'bar', data: sortedAnswers.map(item => item.valueYear2)})
             })
 
           console.log(series)
