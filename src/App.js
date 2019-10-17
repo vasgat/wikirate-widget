@@ -42,7 +42,7 @@ class App extends Component {
       }));
 
     const chartData = {
-      companyName: metricsPerCompany.metrics[0].company,
+      chartSeriesLabels: metricsPerCompany.metrics[0].company,
       chartSeriesData: emissionValuesPerScope
     };
 
@@ -95,7 +95,7 @@ class App extends Component {
               })
               .filter(item => item != null && !isNaN(item.valueYear1) && !isNaN(item.valueYear2))
 
-              const sortedAnswers = _.orderBy(answers, ['valueYear2'], ['desc'])
+              const sortedAnswers = _.orderBy(answers, ['valueYear2'], ['asc'])
               console.log(sortedAnswers)
 
               series.push({name: '2017', type: 'bar', data: sortedAnswers.map(item => item.valueYear1)})
@@ -104,9 +104,19 @@ class App extends Component {
               companies = sortedAnswers.map(item => item.companyName)
               console.log(companies)
               //companies.push({name: '2018', type: 'bar', data: sortedAnswers.map(item => item.valueYear2)})
+
+              const chartData = {
+                chartSeriesLabels: companies,
+                chartSeriesData: series
+              };
+
+              that.setState({
+                chartData
+              });
             })
 
           console.log(series)
+
           // dataYear1.json()
           //   .then(response => 
           //       response.answers.map(item1 => {
