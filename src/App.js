@@ -192,9 +192,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-         {this.state.foo}
-        <CompanyDropdownList selectedCompanyChangedHandler={this.selectedCompanyChangedHandler} companyOptions={this.state.companyOptions} />
+      <div id="App">
         <EmissionChart chartData={this.state.chartData} />
       </div>
     );

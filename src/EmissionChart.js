@@ -14,8 +14,6 @@ class EmissionChart extends Component {
   }
 
   getEchartsOptions = () => ({
-    backgroundColor: '#2c343c',
-
     title: {
       text: `Emissions of ...`,
       left: 'center',
@@ -26,7 +24,7 @@ class EmissionChart extends Component {
     },
 
     legend: {
-        data: ['2018', '2017']
+        data: ['2017', '2018']
     },
 
     grid: {
@@ -56,8 +54,8 @@ class EmissionChart extends Component {
 
   render() {
     return (
-      <div className="Chart">
-        {!!this.props.chartData && <ReactEcharts option={this.getEchartsOptions()} />}
+      <div>
+        {!!this.props.chartData && <ReactEcharts id="Chart" option={this.getEchartsOptions()} />}
       </div>
     );
   }
