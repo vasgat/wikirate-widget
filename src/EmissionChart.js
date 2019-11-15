@@ -15,7 +15,7 @@ class EmissionChart extends Component {
 
   getEchartsOptions = () => ({
     title: {
-      text: `Emissions of ...`,
+      text: `Top 10 companies emitting greenhouse gas`,
       left: 'center',
       top: 20,
       textStyle: {
@@ -24,7 +24,7 @@ class EmissionChart extends Component {
     },
 
     legend: {
-        data: ['2017', '2018']
+        data: ['2018', '2017']
     },
 
     grid: {
