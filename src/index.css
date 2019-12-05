@@ -15,10 +15,13 @@ code {
 }
 
 #App {
-	height: 100%;
-	border: 10px solid;
+	height: 600px;
 }
 
-.echarts-for-react {
-	height: 600px;
+.widgetContainer {
+  padding: 9px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }

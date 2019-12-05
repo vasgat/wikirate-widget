@@ -54,8 +54,8 @@ class EmissionChart extends Component {
 
   render() {
     return (
-      <div>
-        {!!this.props.chartData && <ReactEcharts id="Chart" option={this.getEchartsOptions()} />}
+      <div className="widgetContainer">
+        {!!this.props.chartData && <ReactEcharts id="Chart" option={this.getEchartsOptions()} style={{height: '100%', width: '100%'}} />}
       </div>
     );
   }
