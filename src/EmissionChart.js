@@ -35,8 +35,7 @@ class EmissionChart extends Component {
     },
 
     xAxis: {
-        type: 'value',
-        boundaryGap: [0, 0.01]
+        type: 'value'
     },
 
     yAxis: {
@@ -45,8 +44,10 @@ class EmissionChart extends Component {
     },
 
     tooltip: {
-      trigger: 'item',
-      formatter: "{a} <br/>{b} : {c} ({d}%)"
+      trigger: 'axis',
+      axisPointer: {
+          type: 'shadow'
+      }
     },
 
     series: this.props.chartData.chartSeriesData

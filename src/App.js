@@ -98,7 +98,7 @@ class App extends Component {
               const sortedAnswers = _.orderBy(answers, ['valueYear2'], ['asc']).slice(0, 10)
               console.log(sortedAnswers)
 
-              series.push({name: '2018', type: 'bar', data: sortedAnswers.map(item => item.valueYear2)})
+              series.push({name: '2018', type: 'bar', data: sortedAnswers.map(item => item.valueYear2), barCategoryGap: '40%'})
               series.push({name: '2017', type: 'bar', data: sortedAnswers.map(item => item.valueYear1)})
 
               companies = sortedAnswers.map(item => item.companyName)
