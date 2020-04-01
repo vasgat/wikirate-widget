@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import Select from 'react-select';
 import ReactEcharts from 'echarts-for-react';
-
-import logo from './logo.svg';
-import './App.css';
 
 import _ from 'lodash';
 

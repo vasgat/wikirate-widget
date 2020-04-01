@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import Select from 'react-select';
-
-import logo from './logo.svg';
-import './App.css';
-
 import _ from 'lodash';
 
 import EmissionChart from './EmissionChart';
-import CompanyDropdownList from './CompanyDropdownList';
 
 
 class App extends Component {
@@ -59,19 +53,8 @@ class App extends Component {
     const callYear1 = fetch('https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined+Answer.json?filter%5Bproject%5D=Question+Widget%3A+GHG+emissions&view=compact&filter[year]=2017')
     const callYear2 = fetch('https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined+Answer.json?filter%5Bproject%5D=Question+Widget%3A+GHG+emissions&view=compact&filter[year]=2018')
 
-    // _.values(callYear2answers])
-
     Promise.all([callYear1, callYear2])
       .then(function([dataYear1, dataYear2]) {
-          // console.log('Year1')
-          // console.log(dataYear1)
-
-          // console.log('Year2')
-          // console.log(dataYear2)
-
-          // this.setState({
-          //   foo: dataYear1.json()
-          // });
 
           let companies = []
           const series = []
@@ -102,8 +85,6 @@ class App extends Component {
               series.push({name: '2017', type: 'bar', data: sortedAnswers.map(item => item.valueYear1)})
 
               companies = sortedAnswers.map(item => item.companyName)
-              console.log(companies)
-              //companies.push({name: '2018', type: 'bar', data: sortedAnswers.map(item => item.valueYear2)})
 
               const chartData = {
                 chartSeriesLabels: companies,
@@ -114,80 +95,8 @@ class App extends Component {
                 chartData
               });
             })
-
-          console.log(series)
-
-          // dataYear1.json()
-          //   .then(response => 
-          //       response.answers.map(item1 => {
-          //           const item2 = _.findBy(dataYear1.answers, "companyName", item1.companyName);
-          //           return {
-          //               companyName: item1.companyName, 
-          //               valueYear1: item1.value, 
-          //               valueYear2: item2.value
-          //           };
-          //       })
-          //   )
-
-          // dataYear2.json()
-          //   .then(response => {
-          //       _.values(response.answers)
-          //           .forEach(item => answers.push(item))
-          //   })
-
-          // console.log('Answers')
-          // console.log(answers)
-
-          // for (const answer in dataYear2.json()['answers']) {
-          //      console.log(answer)
-          // }
-
-          // dataYear2.then()
       })
     
-    
-
-    // fetch('https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined+Answer.json?filter%5Bproject%5D=Question+Widget%3A+GHG+emissions&view=compact&filter[year]=2017')
-    // //fetch('mocked-wikirate-emissions-data.json')
-    //   .then(response => response.json())
-    //   // .then(response => { console.log(response); return response; })
-    //   .then(data => {
-    //       // const data = response.json();
-    //       console.log(data);
-    //       const companiesData = []
-
-    //       for (const companyId in data.companies) {
-    //         companiesData
-    //       }
-    //   })
-      // .then(items => {
-      //   const itemsByCompany = _.chain(items)
-      //     .filter(item => item.year === 2017)
-      //     .groupBy('company')
-      //     .pickBy((items, companyName) => {
-      //       const hasScope1 = _.some(items, ['metric', 'Commons+Greenhouse Gas Emissions Scope 1']);
-      //       const hasScope2 = _.some(items, ['metric', 'Commons+Greenhouse Gas Emissions Scope 2']);
-      //       const hasScope1And2Combined = _.some(items, ['metric', 'Commons+Greenhouse Gas Emissions Scope 1 and 2 combined']);
-      //       const containsAllDesiredScopes = hasScope1 && hasScope2 && hasScope1And2Combined;
-      //       return containsAllDesiredScopes;
-      //     });
-
-
-      //   const optionsForSuggestDropdownlist = itemsByCompany.map(itemsByOneCompany => ({
-      //     value: itemsByOneCompany[0].url.split('+')[2],
-      //     label: itemsByOneCompany[0].company
-      //   }))
-      //     .value();
-
-      //   const metricsPerCompany = itemsByCompany.map(itemsByOneCompany => ({
-      //     metrics: itemsByOneCompany,
-      //     company: itemsByOneCompany[0].url.split('+')[2]
-      //   }))
-      //     .value();
-      //   that.setState({ metricsPerCompany })
-      //   that.setState({ companyOptions: optionsForSuggestDropdownlist });
-      // }
-      // )
   }
 
   render() {
