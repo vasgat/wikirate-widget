@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><title>wikirate-widget</title><link href=/css/app.css rel=preload as=style><link href=/js/app.js rel=preload as=script><link href=/css/app.css rel=stylesheet></head><body><noscript><strong>We're sorry but wikirate-widget doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script>var waitForGlobal = function (key, callback) {
+          if (window[key]) {
+            callback();
+          } else {
+            setTimeout(function () {
+              waitForGlobal(key, callback);
+            }, 100);
+          }
+        };
+
+        waitForGlobal("WikirateWidget", function () {
+          WikirateWidget.renderWidget({
+            element: "#app",
+            numberOfTopAnswersToShow: 10,
+            answerEndpoints: [
+              'https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined+Answer.json?filter%5Bproject%5D=Question+Widget%3A+GHG+emissions&view=compact&filter[year]=2017',
+              'https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined+Answer.json?filter%5Bproject%5D=Question+Widget%3A+GHG+emissions&view=compact&filter[year]=2018'
+            ]
+          });
+        });</script><script src=/js/app.js></script></body></html>

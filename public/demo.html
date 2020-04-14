@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/spaudanjo/wikirate-widget/dist/css/app.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/spaudanjo/wikirate-widget/dist/js/app.js"></script>
+    <title>WikiRate Test</title>
+  </head>
+  <body>
+    <div id="widget-1"></div>
+    <div id="widget-2"></div>
+    <script type="text/javascript">
+     WikirateWidget.renderWidget({
+            element: "#widget-1",
+            numberOfTopAnswersToShow: 10,
+            answerEndpoints: [
+                'https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined+Answer.json?filter%5Bproject%5D=Question+Widget%3A+GHG+emissions&view=compact&filter[year]=2017',
+                'https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined+Answer.json?filter%5Bproject%5D=Question+Widget%3A+GHG+emissions&view=compact&filter[year]=2018'
+            ]
+          });
+    </script>
+  </body>
+</html>
