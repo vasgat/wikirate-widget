@@ -50,22 +50,22 @@ function buildEchartsCompliantData(companyToNameMapping: any, metricToNameMappin
             type: 'bar',
             data: data, 
             barCategoryGap: '40%', 
-            markLine: {
-                symbol: 'none',
-                lineStyle: {
-                    color: 'green',
-                    type: 'dotted', 
-                    shadowColor: 'rgba(0, 0, 0, 0.5)',
-                    shadowBlur: 10
-                },
-                label: {
-                    show: true, 
-                    formatter: 'Emissions of all DUMMY Switzerland private \n households in 2019 (reference baseline)',
-                    position: 'start', 
-                    distance: -30,
-                }, 
-                data: [{xAxis: 130000000}],
-           }
+        //     markLine: {
+        //         symbol: 'none',
+        //         lineStyle: {
+        //             color: 'green',
+        //             type: 'dotted', 
+        //             shadowColor: 'rgba(0, 0, 0, 0.5)',
+        //             shadowBlur: 10
+        //         },
+        //         label: {
+        //             show: true, 
+        //             formatter: 'Emissions of all DUMMY Switzerland private \n households in 2019 (reference baseline)',
+        //             position: 'start', 
+        //             distance: -30,
+        //         }, 
+        //         data: [{xAxis: 130000000}],
+        //    }
         };
 
         return echartConfigForAnswersForOneYear
