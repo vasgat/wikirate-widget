@@ -12,6 +12,9 @@
           WikirateWidget.renderWidget({
             element: "#app",
             numberOfTopAnswersToShow: 10,
+            title: "Top 10 Greenhouse Gas Emitting Companies (Scope 1 and 2 combined)",
+            unitName: 'MT CO2e',
+            showMetricTitlesForSubcharts: false, 
             answerEndpoints: [
               'https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined+Answer.json?filter%5Bproject%5D=Question+Widget%3A+GHG+emissions&view=compact&filter[year]=2017',
               'https://wikirate.org/Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined+Answer.json?filter%5Bproject%5D=Question+Widget%3A+GHG+emissions&view=compact&filter[year]=2018'
