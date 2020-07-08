@@ -40,6 +40,7 @@ export default class WikirateEchart extends Vue {
     ;
     
     return {
+        color: ['#0091E0', '#ED4D50'],
         title: {
           text: chartTitle,
           left: 'center',
