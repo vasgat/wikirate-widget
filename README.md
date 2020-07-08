@@ -5,7 +5,7 @@ This Widget allows the easy integration of chart visualisations of the data of f
 ## Requirements
 - yarn: https://yarnpkg.com/
 
-## How to use it
+## Howto
 ```
 yarn install  # install dependencies
 yarn build    # build code into demo/
