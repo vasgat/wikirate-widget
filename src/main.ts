@@ -4,17 +4,19 @@ import App from './App.vue'
 interface WidgetOptions {
     element: string;
     numberOfTopAnswersToShow: number;
-    answerEndpoints: string[];
+    wikirateServer: string;
+    metric: string;
+    answerParams: object[];
     showMetricTitlesForSubcharts: boolean;
     title: string;
     unitName: string;
 }
 const WikirateWidget = {
-    renderWidget: function ({element, numberOfTopAnswersToShow, answerEndpoints, showMetricTitlesForSubcharts, title, unitName}: WidgetOptions) {
+    renderWidget: function ({element, numberOfTopAnswersToShow, wikirateServer, metric, answerParams, showMetricTitlesForSubcharts, title, unitName}: WidgetOptions) {
         Vue.config.productionTip = false
         return new Vue({
             el: element,
-            render: h => h(App, { props: { numberOfTopAnswersToShow, answerEndpoints, showMetricTitlesForSubcharts, title, unitName } })
+            render: h => h(App, { props: { numberOfTopAnswersToShow, wikirateServer, metric, answerParams: answerParams, showMetricTitlesForSubcharts, title, unitName } })
         });
     }
 };

@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans:400,700');
+
+
 <style scoped>
 .widget-container {
+  -webkit-font-smoothing: antialiased;
+  font-family: "Roboto","Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 600px;
   /* min-width: 400px; */
 }
@@ -14,16 +19,18 @@
 
 <template>
   <div class="widget-container">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <WikirateWidget 
     v-bind:number-of-top-answers-to-show="numberOfTopAnswersToShow" 
-    v-bind:answer-endpoints="answerEndpoints" 
+    v-bind:answer-params="answerParams"
+    v-bind:metric="metric"
+    v-bind:wikirate-server="wikirateServer"
     v-bind:title="title"
     v-bind:show-metric-titles-for-subcharts="showMetricTitlesForSubcharts"
     v-bind:unit-name="unitName"
     />
     <div class='powered-by'>
-      Powered by <a href="https://wikirate.org/" target="_blank">WikiRate</a>
+      <span>Powered by </span><a href="https://wikirate.org/" target="_blank">
+      <img src="wikirate-logo.png" height="30px" /></a>
     </div>
   </div>
 </template>
@@ -34,8 +41,10 @@ import WikirateWidget from './components/WikirateWidget.vue';
 export default {
   name: 'App',
   props: [
-    'answer-endpoints', 
-    'number-of-top-answers-to-show', 
+    'answer-params',
+    'number-of-top-answers-to-show',
+    'metric',
+    'wikirate-server',
     'title', 
     'show-metric-titles-for-subcharts', 
     'unit-name'
