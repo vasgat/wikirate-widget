@@ -24,6 +24,8 @@ export default class WikirateEchart extends Vue {
   showMetricTitlesForSubcharts!: boolean;
   @Prop({default: String}) 
   unitName!: string;
+  @Prop({default: 1})
+  unitDimension!: number;
   @Prop({default: String}) 
   title!: string;
 
@@ -64,7 +66,12 @@ export default class WikirateEchart extends Vue {
 
       xAxis: {
           type: 'value', 
-          name: unitName
+          name: unitName,
+          axisLabel: {
+              formatter: (value: number) => {
+                  return value == 0 ? 0 : value / this.unitDimension;
+              }
+          }
       },
 
       yAxis: {

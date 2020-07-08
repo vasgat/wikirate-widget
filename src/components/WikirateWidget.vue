@@ -14,7 +14,8 @@
   <div class="chart-container">
     <WikirateEchart 
     v-bind:title="title" 
-    v-bind:unit-name="unitName" 
+    v-bind:unit-name="unitName"
+    v-bind:unit-dimension="unitDimension"
     v-for="chartData in this.chartDataByMetric" :key="chartData.metaData.metricId" v-bind:chartData="chartData" 
     v-bind:showMetricTitlesForSubcharts="showMetricTitlesForSubcharts"/>
     <br />
@@ -54,6 +55,9 @@ export default class WikirateWidget extends Vue {
 
   @Prop({default: ""})
   unitName!: string;
+
+  @Prop({default: 1})
+  unitDimension!: number;
 
   @Prop({default: true})
   showMetricTitlesForSubcharts!: boolean;

@@ -10,13 +10,14 @@ interface WidgetOptions {
     showMetricTitlesForSubcharts: boolean;
     title: string;
     unitName: string;
+    unitDimension: number;
 }
 const WikirateWidget = {
-    renderWidget: function ({element, numberOfTopAnswersToShow, wikirateServer, metric, answerParams, showMetricTitlesForSubcharts, title, unitName}: WidgetOptions) {
+    renderWidget: function ({element, numberOfTopAnswersToShow, wikirateServer, metric, answerParams, showMetricTitlesForSubcharts, title, unitName, unitDimension}: WidgetOptions) {
         Vue.config.productionTip = false
         return new Vue({
             el: element,
-            render: h => h(App, { props: { numberOfTopAnswersToShow, wikirateServer, metric, answerParams: answerParams, showMetricTitlesForSubcharts, title, unitName } })
+            render: h => h(App, { props: { numberOfTopAnswersToShow, wikirateServer, metric, answerParams: answerParams, showMetricTitlesForSubcharts, title, unitName, unitDimension} })
         });
     }
 };

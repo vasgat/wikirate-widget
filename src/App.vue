@@ -27,6 +27,7 @@
     v-bind:title="title"
     v-bind:show-metric-titles-for-subcharts="showMetricTitlesForSubcharts"
     v-bind:unit-name="unitName"
+    v-bind:unit-dimension="unitDimension"
     />
     <div class='powered-by'>
       <span>Powered by </span><a href="https://wikirate.org/" target="_blank">
@@ -47,7 +48,8 @@ export default {
     'wikirate-server',
     'title', 
     'show-metric-titles-for-subcharts', 
-    'unit-name'
+    'unit-name',
+    'unit-dimension'
   ],
   components: {
     WikirateWidget
