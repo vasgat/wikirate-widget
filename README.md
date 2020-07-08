@@ -4,14 +4,16 @@ This Widget allows the easy integration of chart visualisations of the data of f
 
 ## Simple Installation How to
 Just point a web browser towards the contents of the dist/ directory.
-Visible online here: https://htmlpreview.github.io/?https://github.com/wikirate/wikirate-widget/blob/master/dist/index.html
+[(See current master.)](https://htmlpreview.github.io/?https://github.com/wikirate/wikirate-widget/blob/master/dist/index.html])
 
 ## Tinkerer Howto
 ...for those wishing to experiment with different WikiRate requests
 
-The simplest way to tinker is to go directly to dist/index.html and alter the request details.
+The simplest way to tinker is to go directly to dist/index.html and alter arguments to renderWidget.
 
-You can use a different metric by changing the arguments to renderWidget
+- *metric* can be any [numeric WikiRate metric](https://wikirate.org/Metric?filter%5Bnot_ids%5D=&sort=bookmarkers&filter%5Bname%5D=&filter%5Bvalue_type%5D%5B%5D=Number)
+- *filter* can be any valid filter available on metric pages,.
+- *UnitDimension* is a number by which label numbers will be divided.
 
 
 ## Developer Howto
