@@ -2,7 +2,7 @@
 
 This Widget allows the easy integration of chart visualisations of the data of from the [WikiRate](https://wikirate.org/) platform. 
 
-## Simple Installation How to
+## Simple Installation Howto
 Just point a web browser towards the contents of the dist/ directory.
 [(See current master.)](https://htmlpreview.github.io/?https://github.com/wikirate/wikirate-widget/blob/master/dist/index.html])
 

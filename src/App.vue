@@ -10,8 +10,8 @@
   font-size: 13px;
   color: #888;
   text-align: right;
-  margin-right: 50px;
-  margin-top: 40px;
+  margin-right: 60px;
+  margin-top: 20px;
 }
 .powered-by a {
   color: green;

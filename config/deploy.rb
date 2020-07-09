@@ -12,7 +12,6 @@ set :deploy_to, '/srv/emissions_widget'
 # set :log_level, :debug
 # set :pty, true
 
-
 # set :linked_dirs,  %w{ files public config } #tmp/pids tmp/cache tmp/sockets public }
 
 
