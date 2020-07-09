@@ -8,6 +8,10 @@
 .powered-by {
   font-family: sans-serif;
   font-size: 13px;
+  color: #888;
+  text-align: right;
+  margin-right: 50px;
+  margin-top: 40px;
 }
 .powered-by a {
   color: green;
@@ -28,7 +32,7 @@
     v-bind:colors="colors"
     />
     <div class='powered-by'>
-      <span>Powered by </span><a href="https://wikirate.org/" target="_blank">
+      <span>powered by </span><a href="https://wikirate.org/" target="_blank">
       <img src="wikirate-logo.png" height="30px" /></a>
     </div>
   </div>
