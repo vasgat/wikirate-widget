@@ -11,13 +11,15 @@ interface WidgetOptions {
     title: string;
     unitName: string;
     unitDimension: number;
+    colors: string[];
 }
+
 const WikirateWidget = {
-    renderWidget: function ({element, numberOfTopAnswersToShow, wikirateServer, metric, answerParams, showMetricTitlesForSubcharts, title, unitName, unitDimension}: WidgetOptions) {
+    renderWidget: function ({element, numberOfTopAnswersToShow, wikirateServer, metric, answerParams, showMetricTitlesForSubcharts, title, unitName, unitDimension, colors}: WidgetOptions) {
         Vue.config.productionTip = false
         return new Vue({
             el: element,
-            render: h => h(App, { props: { numberOfTopAnswersToShow, wikirateServer, metric, answerParams: answerParams, showMetricTitlesForSubcharts, title, unitName, unitDimension} })
+            render: h => h(App, { props: { numberOfTopAnswersToShow, wikirateServer, metric, answerParams: answerParams, showMetricTitlesForSubcharts, title, unitName, unitDimension, colors} })
         });
     }
 };

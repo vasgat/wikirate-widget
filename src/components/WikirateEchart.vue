@@ -1,6 +1,6 @@
 <style scoped>
 #chart {
-  width:100%; 
+  width:100%;
   height:100%;
   /* min-width: 400px; */
 }
@@ -18,15 +18,17 @@ import * as echarts from 'echarts';
 @Component
 export default class WikirateEchart extends Vue {
 
-  @Prop({default: []}) 
-  chartData!: any[]; 
-  @Prop({default: true}) 
+  @Prop({default: []})
+  chartData!: any[];
+  @Prop({default: true})
   showMetricTitlesForSubcharts!: boolean;
-  @Prop({default: String}) 
+  @Prop({default: String})
   unitName!: string;
   @Prop({default: 1})
   unitDimension!: number;
-  @Prop({default: String}) 
+  @Prop({default: ['#0091E0', '#ED4D50']})
+  colors!: string[];
+  @Prop({default: String})
   title!: string;
 
   drawChart(chartOption: any) {
@@ -36,24 +38,24 @@ export default class WikirateEchart extends Vue {
   }
 
   generateEchartsOptions = (chartData: any, title: string, showMetricTitlesForSubcharts: boolean, unitName: string) => {
-    const chartTitle = showMetricTitlesForSubcharts ? 
-    `Top ${chartData.metaData.numberOfTopAnswersToShow} companies: \n ${chartData.metaData.metricName}` : 
+    const chartTitle = showMetricTitlesForSubcharts ?
+    `Top ${chartData.metaData.numberOfTopAnswersToShow} companies: \n ${chartData.metaData.metricName}` :
     title
     ;
-    
+
     return {
-        color: ['#0091E0', '#ED4D50'],
-        title: {
-          text: chartTitle,
-          left: 'center',
-          top: 10,
-          textStyle: {
-            color: '#ccc'
-          }
-        }, 
+      color: this.colors,
+      title: {
+        text: chartTitle,
+        left: 'center',
+        top: 10,
+        textStyle: {
+          color: '#ccc'
+        }
+      },
       legend: {
           data: chartData.mainData.legendData,
-          bottom: 10, 
+          bottom: 10,
           left: 'center'
       },
 
@@ -65,7 +67,7 @@ export default class WikirateEchart extends Vue {
       },
 
       xAxis: {
-          type: 'value', 
+          type: 'value',
           name: unitName,
           axisLabel: {
               formatter: (value: number) => {
@@ -88,23 +90,19 @@ export default class WikirateEchart extends Vue {
           //   }
           // }
       },
-
       tooltip: {
         trigger: 'axis',
         axisPointer: {
             type: 'shadow'
         }
       },
-
       series: chartData.mainData.chartSeriesData
     };
-
   }
 
   mounted() {
       const echartOptions = this.generateEchartsOptions(this.chartData, this.title, this.showMetricTitlesForSubcharts, this.unitName);
       this.drawChart(echartOptions);
   }
-  
 }
 </script>

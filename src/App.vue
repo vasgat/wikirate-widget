@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Droid+Sans:400,700');
-
-
 <style scoped>
 .widget-container {
   -webkit-font-smoothing: antialiased;
@@ -28,6 +25,7 @@
     v-bind:show-metric-titles-for-subcharts="showMetricTitlesForSubcharts"
     v-bind:unit-name="unitName"
     v-bind:unit-dimension="unitDimension"
+    v-bind:colors="colors"
     />
     <div class='powered-by'>
       <span>Powered by </span><a href="https://wikirate.org/" target="_blank">
@@ -49,7 +47,8 @@ export default {
     'title', 
     'show-metric-titles-for-subcharts', 
     'unit-name',
-    'unit-dimension'
+    'unit-dimension',
+    'colors',
   ],
   components: {
     WikirateWidget
