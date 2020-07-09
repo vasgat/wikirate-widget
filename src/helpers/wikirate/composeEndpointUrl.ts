@@ -24,10 +24,7 @@ function query(params: { [key: string]: any }): string {
     return toQueryString(params, null);
 }
 
-function composeAnswerSearchUrl(base: string, metric: string, params: { [key: string]: any }): string {
-    return base + "/" + metric + "+Answer.json" + "?" + query(params);}
-
 
 export default function composeEndpointUrl(base: string, metric: string, searchParams: { [key: string]: any }) {
-    return searchParams.map((params: object) => composeAnswerSearchUrl(base, metric, params))
+    return base + "/" + metric + "+Answer.json" + "?" + query(searchParams);
 }

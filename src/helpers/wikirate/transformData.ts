@@ -112,9 +112,6 @@ function createChartDataForOneMetricGroup(answersForOneMetric: any, companyToNam
     return chartData;
 }
 
-
-
-
 function cleanAnswersForAllYears(answers: any) {
     const answersWithoutInvalidValues = answers.filter((answer: any) => !isNaN(answer.value));
     const answersWithCorrectedTypes = answersWithoutInvalidValues

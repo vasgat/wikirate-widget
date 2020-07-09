@@ -9,14 +9,6 @@
   </head>
   <body>
     <div id="app"></div>
-    <!-- <wikirate-widget years="2017,2018" number-of-top-answers-to-show="8"></wikirate-widget>
-    <br />
-    <wikirate-widget years="2013" number-of-top-answers-to-show="4">
-      <wikirate-resource url="http://..." />
-      <wikirate-resource url="http://..." />
-      <wikirate-resource url="http://..." />
-    </wikirate-widget> -->
-    <!-- built files will be auto injected -->
     <script type="text/javascript">
         var waitForGlobal = function (key, callback) {
           if (window[key]) {
@@ -36,7 +28,7 @@
             unitName: 'MT CO2e',
             unitDimension: 1000000,
             colors: ['#0091E0', '#ED4D50'],
-            showMetricTitlesForSubcharts: false,
+            showMetricTitlesForSubcharts: true,
             wikirateServer: "https://wikirate.org",
             metric: "Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined",
             answerParams: [
