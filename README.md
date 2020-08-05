@@ -4,7 +4,7 @@ This Widget allows the easy integration of chart visualisations of the data of f
 
 ## Simple Installation Howto
 Just point a web browser towards the contents of the dist/ directory.
-[(See current master.)](https://htmlpreview.github.io/?https://github.com/wikirate/wikirate-widget/blob/master/dist/index.html])
+[(See current master.)](https://htmlpreview.github.io/?https://github.com/wikirate/wikirate-widget/blob/master/dist/index.html)
 
 ## Tinkerer Howto
 ...for those wishing to experiment with different WikiRate requests
