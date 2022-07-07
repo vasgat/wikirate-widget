@@ -29,8 +29,11 @@
             unitDimension: 1000000,
             colors: ['#0dcaf0', '#484c9d', '#dd4549', '#f7bd1d', '#7ac774'],
             showMetricTitlesForSubcharts: false,
-            wikirateServer: "https://demo.wikirate.org",
+            wikirateServer: "https://wikirate.org",
+            // TODO: refactor to use metric and project ids (with identifying variable
+            // names)
             metric: "Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined",
+            // TODO: refactor to use single request
             answerParams: [
               { filter: { project: "Question Widget: GHG emissions", year: "2017" }},
               { filter: { project: "Question Widget: GHG emissions", year: "2018" }},
