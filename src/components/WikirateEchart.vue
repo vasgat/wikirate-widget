@@ -1,17 +1,17 @@
 <style scoped>
 #chart {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   /* min-width: 400px; */
 }
 </style>
 
 <template>
-    <div id="chart" ref="chart"></div>
+  <div id="chart" ref="chart"></div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import {Component, Prop, Vue} from 'vue-property-decorator';
 
 import * as echarts from 'echarts';
 
@@ -26,7 +26,7 @@ export default class WikirateEchart extends Vue {
   unitName!: string;
   @Prop({default: 1})
   unitDimension!: number;
-  @Prop({default: ['#0091E0', '#ED4D50']})
+  @Prop({default: ['#7164D0', '#EDEBF9']})
   colors!: string[];
   @Prop({default: String})
   title!: string;
@@ -39,8 +39,8 @@ export default class WikirateEchart extends Vue {
 
   generateEchartsOptions = (chartData: any, title: string, showMetricTitlesForSubcharts: boolean, unitName: string) => {
     const chartTitle = showMetricTitlesForSubcharts ?
-    `Top ${chartData.metaData.numberOfTopAnswersToShow} companies: \n ${chartData.metaData.metricName}` :
-    title
+        `Top ${chartData.metaData.numberOfTopAnswersToShow} companies: \n ${chartData.metaData.metricName}` :
+        title
     ;
 
     return {
@@ -54,55 +54,60 @@ export default class WikirateEchart extends Vue {
         }
       },
       legend: {
-          data: chartData.mainData.legendData,
-          bottom: 10,
-          left: 'center'
+        data: chartData.mainData.legendData,
+        bottom: 10,
+        left: 'center'
       },
 
       grid: {
-          left: '0',
-          // right: '4%',
-          bottom: '8%',
-          containLabel: true
+        left: '0',
+        // right: '4%',
+        bottom: '8%',
+        containLabel: true
       },
 
       xAxis: {
-          type: 'value',
-          name: unitName,
-          axisLabel: {
-              formatter: (value: number) => {
-                  return value == 0 ? 0 : value / this.unitDimension;
-              }
+        type: 'log',
+        name: unitName,
+        axisLabel: {
+          formatter: (value: number) => {
+
+            return value == 0 ? 0 : value / this.unitDimension;
           }
+        }
       },
 
       yAxis: {
-          type: 'category',
-          data: chartData.mainData.chartSeriesLabels,
-          // TODO: put (DUMMY) Switzerland as a reference at the end to the dataset and mark it in redd
-          // axisLabel: {
-          //   textStyle: {
-          //     // fontWeight: 'bold',
-          //     color: function (value: string, index: number) {
-          //       // return value === 'DUMMY Switzerland' ? 'red' : 'black';
-          //       return value === 'Nippon Steel & Sumitomo Metal' ? 'green' : 'black';
-          //     }
-          //   }
-          // }
+        type: 'category',
+        data: chartData.mainData.chartSeriesLabels,
+        // TODO: put (DUMMY) Switzerland as a reference at the end to the dataset and mark it in redd
+        // axisLabel: {
+        //   textStyle: {
+        //     // fontWeight: 'bold',
+        //     color: function (value: string, index: number) {
+        //       // return value === 'DUMMY Switzerland' ? 'red' : 'black';
+        //       return value === 'Nippon Steel & Sumitomo Metal' ? 'green' : 'black';
+        //     }
+        //   }
+        // }
       },
+
+
       tooltip: {
         trigger: 'axis',
         axisPointer: {
-            type: 'shadow'
+          type: 'shadow'
         }
       },
       series: chartData.mainData.chartSeriesData
     };
+
+
   }
 
   mounted() {
-      const echartOptions = this.generateEchartsOptions(this.chartData, this.title, this.showMetricTitlesForSubcharts, this.unitName);
-      this.drawChart(echartOptions);
+    const echartOptions = this.generateEchartsOptions(this.chartData, this.title, this.showMetricTitlesForSubcharts, this.unitName);
+    this.drawChart(echartOptions);
   }
 }
 </script>

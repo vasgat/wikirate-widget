@@ -122,10 +122,8 @@ function cleanAnswersForAllYears(answers: any) {
 }
 
 export default function transformFetchedDataIntoChartData(fetchedDataForAllYears: any, numberOfTopAnswersToShow: number) {
-
     const mergedDataForAllYears = _.merge({}, ...fetchedDataForAllYears);
-    const mergedAnswersForAllYears = _.values(mergedDataForAllYears.answers); 
-
+    const mergedAnswersForAllYears = _.values(mergedDataForAllYears.answers);
     const cleanedAnswersForAllYears = cleanAnswersForAllYears(mergedAnswersForAllYears);
 
     // TODO: extraxt this into its own method

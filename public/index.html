@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="icon" href="<%= BASE_URL %>favicon_wr.svg">
     <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="text/javascript">
-        var waitForGlobal = function (key, callback) {
-          if (window[key]) {
+</head>
+<body>
+<div id="app"></div>
+<script type="text/javascript">
+    var waitForGlobal = function (key, callback) {
+        if (window[key]) {
             callback();
-          } else {
+        } else {
             setTimeout(function () {
-              waitForGlobal(key, callback);
+                waitForGlobal(key, callback);
             }, 100);
-          }
-        };
+        }
+    };
 
-        waitForGlobal("WikirateWidget", function () {
-          WikirateWidget.renderWidget({
+    waitForGlobal("WikirateWidget", function () {
+        WikirateWidget.renderWidget({
             element: "#app",
             numberOfTopAnswersToShow: 10,
             title: "Top 10 Greenhouse Gas Emitting Companies (Scope 1 and 2 combined)",
             unitName: 'tCO2e',
             unitDimension: 1000000,
-            colors: ['#0dcaf0', '#484c9d', '#dd4549', '#f7bd1d', '#7ac774'],
+            colors: ['#7164D0','#948bdc', '#aaa2e3', '#bfb9ea'],
             showMetricTitlesForSubcharts: false,
             wikirateServer: "https://wikirate.org",
             // TODO: refactor to use metric and project ids (with identifying variable
@@ -35,14 +35,15 @@
             metric: "Commons+Greenhouse_Gas_Emissions_Scope_1_and_2_combined",
             // TODO: refactor to use single request
             answerParams: [
-              { filter: { project: "Question Widget: GHG emissions", year: "2017" }},
-              { filter: { project: "Question Widget: GHG emissions", year: "2018" }},
-              { filter: { project: "Question Widget: GHG emissions", year: "2019" }},
-              { filter: { project: "Question Widget: GHG emissions", year: "2020" }},
-              { filter: { project: "Question Widget: GHG emissions", year: "2021" }},
+                // {filter: {project: "Question Widget: GHG emissions", year: "2018"}},
+                {filter: {project: "Question Widget: GHG emissions", year: "2019"}},
+                {filter: {project: "Question Widget: GHG emissions", year: "2020"}},
+                {filter: {project: "Question Widget: GHG emissions", year: "2021"}},
+                {filter: {project: "Question Widget: GHG emissions", year: "2022"}}
             ]
-          });
         });
-      </script>
-  </body>
+    });
+
+</script>
+</body>
 </html>

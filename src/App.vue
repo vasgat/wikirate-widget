@@ -1,12 +1,12 @@
 <style scoped>
 .widget-container {
   -webkit-font-smoothing: antialiased;
-  font-family: "Roboto","Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "IBM Plex Sans";
   height: 600px;
   /* min-width: 400px; */
 }
 .powered-by {
-  font-family: sans-serif;
+  font-family: "IBM Plex Sans";
   font-size: 13px;
   color: #888;
   text-align: right;

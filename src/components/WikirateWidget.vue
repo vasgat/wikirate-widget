@@ -55,7 +55,7 @@ export default class WikirateWidget extends Vue {
   unitDimension!: number;
   @Prop({default: true})
   showMetricTitlesForSubcharts!: boolean;
-  @Prop({default: ['#0091E0', '#ED4D50']})
+  @Prop({default: ['#7164D0', '#EDEBF9']})
   colors!: string[];
 
   mounted() {
